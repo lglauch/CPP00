@@ -3,28 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lglauch <lglauch@student.42.fr>            +#+  +:+       +#+        */
+/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:32:53 by lglauch           #+#    #+#             */
-/*   Updated: 2024/07/22 16:45:53 by lglauch          ###   ########.fr       */
+/*   Updated: 2024/07/23 18:17:20 by leo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
-#include "Contact.hpp"
 #include <iostream>
+#include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
 	Contact contacts[8];
+	int		index;
 
 	public:
-	void	add_contact(int index);
+	PhoneBook();
+	~PhoneBook();
+	void	add_contact(Contact contact);
 	void	search_contact(void);
-
+	std::string	print_rows(std::string str);
 };
 
 #endif
