@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: lglauch <lglauch@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 15:16:07 by lglauch           #+#    #+#             */
-/*   Updated: 2024/07/23 18:48:00 by leo              ###   ########.fr       */
+/*   Updated: 2024/07/24 12:51:06 by lglauch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 #include "Contact.hpp"
 #include <cstdlib>
 
-void	addcontact(void)
+void	addcontact(Contact &con, PhoneBook &book)
 {
-	Contact newcontact;
-	PhoneBook book;
 	std::string tmp;
 
-	newcontact.fill();
-	book.add_contact(newcontact);
-	std::cout << newcontact.get_darkestsecret << std::endl;
+	con.fill();
+	book.add_contact(con);
+	if (!con.get_darkestsecret().empty())
+	{
+		std::cout << "\033\n[32mContact added successfully\n\033[0m" << std::endl;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -30,6 +31,7 @@ int	main(int argc, char **argv)
 	std::string user;
 	std::string	tmp;
 	PhoneBook book;
+	Contact	  con;
 
 	user = getenv("USER");
 	(void)argv;
@@ -49,13 +51,12 @@ int	main(int argc, char **argv)
 				}
 			else if (tmp == "ADD")
 			{
-				addcontact();
-				std::cout << "\033\n[32mContact added successfully\n\033[0m" << std::endl;
+				addcontact(con, book);
 				std::cout << "Use \033[1mADD\033[0m: save a new contact" << std::endl << "Use \033[1mSEARCH\033[0m: display a specific contact" << std::endl << "Use \033[1mEXIT\033[0m: quits the program and your contacts will be lost :(\n\n" << std::endl;
 			}
 			else if (tmp == "SEARCH")
 			{
-				book.search_contact();
+				book.search_contact(con);
 				std::cout << "Use \033[1mADD\033[0m: save a new contact" << std::endl << "Use \033[1mSEARCH\033[0m: display a specific contact" << std::endl << "Use \033[1mEXIT\033[0m: quits the program and your contacts will be lost :(\n\n" << std::endl;
 			}
 			else if (tmp == "EXIT")

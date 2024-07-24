@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leo <leo@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: lglauch <lglauch@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:32:53 by lglauch           #+#    #+#             */
-/*   Updated: 2024/07/23 18:17:20 by leo              ###   ########.fr       */
+/*   Updated: 2024/07/24 14:22:06 by lglauch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "Contact.hpp"
+#include <iomanip>
 
 class PhoneBook
 {
@@ -26,7 +27,7 @@ class PhoneBook
 	PhoneBook();
 	~PhoneBook();
 	void	add_contact(Contact contact);
-	void	search_contact(void);
+	void	search_contact(Contact con);
 	std::string	print_rows(std::string str);
 };
 
