@@ -6,7 +6,7 @@
 /*   By: lglauch <lglauch@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:32:53 by lglauch           #+#    #+#             */
-/*   Updated: 2024/07/24 14:22:06 by lglauch          ###   ########.fr       */
+/*   Updated: 2024/07/29 13:49:58 by lglauch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PhoneBook
 	PhoneBook();
 	~PhoneBook();
 	void	add_contact(Contact contact);
-	void	search_contact(Contact con);
+	void	search_contact(void);
 	std::string	print_rows(std::string str);
 };
 
